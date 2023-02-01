@@ -1,0 +1,43 @@
+.card {
+    background-color: var(--bg-base-light);
+    border-radius: 10px;
+    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+    position: relative;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+
+.card__img {
+    width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    cursor: pointer;
+}
+
+.card__name_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+}
+
+.card__name {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--color-primary-light);
+}
+
+.card__id {
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    color: #fff;
+}
+
+.card__id > span {
+    color: var(--color-primary);
+}
+
+.card:hover {
+    box-shadow: 0px 10px 15px -3px var(--color-primary);
+}

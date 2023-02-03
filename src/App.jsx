@@ -1,4 +1,4 @@
-import { Route, Routes, useLocation } from 'react-router-dom'
+import { Route, Routes, useLocation, useNavigate } from 'react-router-dom'
 import './index.css'
 // Rutas
 import { Login } from './pages/Login/Login'
@@ -8,9 +8,16 @@ import { Details } from './components/Detail/Details'
 
 // Componentes
 import { NavBar } from './components/NavBar/NavBar'
+import { useEffect } from 'react'
+import { useSelector } from 'react-redux'
 
 function App () {
   const location = useLocation()
+  const isAccess = useSelector((state) => state.access)
+  const navigate = useNavigate()
+  useEffect(() => {
+    !isAccess && navigate('/')
+  }, [])
 
   return (
     <>

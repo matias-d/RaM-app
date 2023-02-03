@@ -2,6 +2,67 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     place-content: center;
-    margin: 6rem 0;
+    margin-bottom: 2rem;
     gap: 2rem;
+}
+
+.card__title {
+    margin-top: 6rem;
+    display: flex;
+    align-items: center;
+    column-gap: 0.4rem;
+    color: #fff;
+}
+
+.card__icon {
+    color: var(--color-primary);
+}
+
+.card__title > span {
+    color: var(--color-primary)
+}
+
+.card__info_container {
+    display : flex;
+    height: 100vh; 
+    justify-content: center;
+    align-items: center;
+}
+
+.card__info {
+    width: 40vw;
+    text-align: center;
+    background-color: var(--bg-base-light);
+    padding: 1rem;
+    border-radius: 10px;
+    letter-spacing: 0.1rem;
+}
+
+.card__img {
+    position: absolute;
+    top: 0;
+    left: -7.6rem;
+    z-index: 2;
+}
+
+@media (max-width: 640px) {
+
+    .container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+
+    .card__img {
+        display: none;
+    }
+
+    .card__info {
+        width: 80%;
+    }
+
+    .card__title {
+        justify-content: center;
+        margin : 8rem 0 3rem 0;
+    }
+   
 }

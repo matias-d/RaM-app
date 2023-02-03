@@ -2,6 +2,67 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     place-content: center;
-    margin: 6rem 0;
     gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.favorites__title {
+    margin-top: 6rem;
+    display: flex;
+    align-items: center;
+    column-gap: 0.4rem;
+    color: #fff;
+}
+
+.favorites__icon {
+    color: var(--color-primary);
+}
+
+.favorites__title > span {
+    color: var(--color-primary)
+}
+
+.favorites__info_container {
+    display : flex;
+    height: 100vh; 
+    justify-content: center;
+    align-items: center;
+}
+
+.favorites__info {
+    width: 40vw;
+    text-align: center;
+    background-color: var(--bg-base-light);
+    padding: 1rem;
+    border-radius: 10px;
+    letter-spacing: 0.1rem;
+
+}
+
+.favorites__img {
+    position: absolute;
+    top: 8rem;
+    left: 8rem;
+    width: 350px;
+}
+
+@media (max-width: 640px) {
+    .container {
+        grid-template-columns: repeat(2, 1fr);
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .favorites__title{
+        justify-content: center;
+        margin-top: 7.4rem;
+    }
+
+    .favorites__info {
+        width: 80%;
+    }
+
+    .favorites__img {
+        display: none;
+    }
 }

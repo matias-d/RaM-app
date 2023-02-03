@@ -1,0 +1,115 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-base-light);
+    width: 26vw;
+    padding: 1rem 2rem;
+    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+}
+
+.form__title {
+    font-size: 2rem;
+    color: #fff;
+}
+
+.form__title > span {
+    color: var(--color-primary);
+}
+
+.form__input_email, .form__input_password {
+    background-color: var(--bg-base);
+    border: none;
+    border-radius: 6px;
+    padding: 0.7rem 0;
+    padding-left: 2rem;
+    padding-right: 1rem;
+    color: var(--color-primary);
+    outline: none;
+    margin-bottom: 1rem;
+    width: 22vw;
+}
+
+.input__email_error, .input__pass_error {
+    background-color: var(--bg-base);
+    border-radius: 6px;
+    border: #f07777 2px solid;
+    padding: 0.7rem 0;
+    padding-left: 2rem;
+    padding-right: 1rem;
+    color: var(--color-primary);
+    outline: none;
+    width: 22vw;
+}
+
+.form__btn {
+    padding: 0.5rem 1.4rem;
+    background-color: var(--color-primary);
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in;
+}
+
+.container__inputEmail, .container__inputPass {
+    position: relative;
+
+}
+
+.input__iconEmail, .input__iconPass {
+    position: absolute;
+    top: 36%;
+    transform: translateY(-50%);
+    left: 10px;
+}
+
+.form__btn:hover {
+    background-color: var(--color-pimary-hover);
+}
+
+.info__email, .info__pass {
+    font-size: 0.8rem;
+    color: #ffa0a0;
+}
+
+.data__warning {
+    color: #ffa0a0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 10px;
+}
+
+.data__failed {
+    position: absolute;
+    color: #f07777;
+    bottom: 15%;
+    left: 56%;
+    width: 20vw;
+    text-align: center;
+    background-color: #ffa0a010;
+    padding: 0.6rem 1rem;
+    border: 1px solid #f07777;
+    border-radius: 10px;
+}
+
+@media (max-width: 640px) {
+    .form {
+        width: 70%;
+    }
+
+    .form__input_email, .form__input_password, .input__email_error, .input__pass_error{
+        width: 100%;
+    }
+
+    .form__title {
+        text-align: center;
+    }
+
+    .data__failed {
+        width: 70%;
+        left: 15%;
+        bottom: 20%;
+    }
+    
+}

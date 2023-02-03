@@ -27,6 +27,8 @@ export const Search = () => {
       <div className={styles.container__input}>
         <input
           type='number'
+          max='826'
+          min='1'
           value={id}
           placeholder='Buscar personaje por id'
           onChange={(e) => handleChange(e)}
@@ -34,7 +36,6 @@ export const Search = () => {
         />
         <RiSearch2Line className={styles.input__icon} />
       </div>
-      <button type='submit' className={styles.form__btn}>Agregar</button>
     </form>
   )
 }

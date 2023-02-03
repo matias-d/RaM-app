@@ -2,10 +2,19 @@ import React from 'react'
 import styles from './navbar.module.css'
 import rickLogo from '../../assets/Rick_and_Morty.svg.png'
 import { Search } from '../Search/Search'
-import { RiHome2Line, RiLoginBoxLine, RiHeartsLine } from 'react-icons/ri'
-import { Link, NavLink } from 'react-router-dom'
+import { RiLoginBoxLine } from 'react-icons/ri'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { accessPermited } from '../../redux/actions'
 
 export const NavBar = () => {
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  function handleClick () {
+    dispatch(accessPermited())
+    navigate('/')
+  }
+
   return (
     <header className={styles.container}>
       <nav className={styles.header__nav}>
@@ -14,16 +23,19 @@ export const NavBar = () => {
         </Link>
         <ul className={styles.header__list}>
           <li className={styles.list__items}>
-            <NavLink to='/home' className={({ isActive }) => isActive ? styles.isActive : styles.items__links}><RiHome2Line className={styles.links__icon} />Inicio</NavLink>
+            <NavLink to='/home' className={({ isActive }) => isActive ? styles.isActive : styles.items__links}>Inicio</NavLink>
           </li>
           <li className={styles.list__items}>
-            <NavLink to='/favorites' className={({ isActive }) => isActive ? styles.isActive : styles.items__links}><RiHeartsLine className={styles.links__icon} /> Favoritos</NavLink>
+            <NavLink to='/favorites' className={({ isActive }) => isActive ? styles.isActive : styles.items__links}> Favoritos</NavLink>
+          </li>
+          <li className={styles.list__items}>
+            <NavLink to='/about' className={({ isActive }) => isActive ? styles.isActive : styles.items__links}>Saber más</NavLink>
           </li>
         </ul>
       </nav>
       <div className={styles.header__search}>
         <Search />
-        <button className={styles.header__btnLogout}><RiLoginBoxLine /></button>
+        <RiLoginBoxLine className={styles.header__btnLogout} onClick={handleClick} />
       </div>
     </header>
   )

@@ -1,8 +1,16 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import portadaRaM from '../../assets/pngwing.com.png'
 import styles from './login.module.css'
 import { LoginForm } from '../../components/Form/LoginForm'
+import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 export const Login = () => {
+  const isAccess = useSelector((state) => state.access)
+  const navigate = useNavigate()
+  useEffect(() => {
+    isAccess && navigate('/RaM/home')
+  }, [])
+
   return (
     <>
       <div className={styles.container}>

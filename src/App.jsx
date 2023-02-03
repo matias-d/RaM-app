@@ -1,4 +1,4 @@
-import { Route, Routes, useLocation, useNavigate } from 'react-router-dom'
+import { Navigate, Route, Routes, useLocation, useNavigate } from 'react-router-dom'
 import './index.css'
 // Rutas
 import { Login } from './pages/Login/Login'
@@ -31,6 +31,7 @@ function App () {
           <Route path='/RaM-app/home' element={<Home />} />
           <Route path='/RaM-app/favorites' element={<Favorites />} />
           <Route path='/RaM-app/character/:id' element={<Details />} />
+          <Route path='*' element={<Navigate to='/RaM-app/home' />} />
         </Routes>
       </div>
     </>

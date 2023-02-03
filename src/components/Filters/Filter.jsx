@@ -37,6 +37,7 @@ export const Filter = () => {
           <option value='all' className={styles.specie__options}>All</option>
           <option value='Human' className={styles.specie__options}>Human</option>
           <option value='Alien' className={styles.specie__options}>Alien</option>
+          <option value='Humanoid' className={styles.specie__options}>Humanoid</option>
           <option value='unknown' className={styles.specie__options}>Unknown</option>
           <option value='Mythological Creature' className={styles.specie__options}>Mythological Creature</option>
         </select>

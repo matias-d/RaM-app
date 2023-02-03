@@ -95,7 +95,7 @@
 
 
 .waves__svg {
-    position: absolute;
+    position: fixed;
     left: 0;
     bottom: 0;
   }
@@ -125,19 +125,31 @@
         padding: 0 1rem;
         border-bottom-right-radius: 10px;
         border-bottom-left-radius: 10px;
+        border-bottom: 2px solid var(--color-primary);
     }
 
     .info__name {
         text-align: center;
-        font-size: 1.7rem;
-    }
-    
-    .info__origin, .info__location {
-       justify-content: center;
-       flex-direction: column;
-       font-size: 1rem;
+        font-size: 1.3rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 50vw;
     }
 
+    .info__origin, .info__location {
+        font-size: 0.9rem;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    .info__origin > span, .info__location > span  {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 50vw;
+        text-align: center;
+    }
     
     .detail__toBack{
         display: none;

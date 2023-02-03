@@ -11,7 +11,7 @@
 }
 
 .genre__select, .status__select, .specie__select {
-    border: 2px solid var(--color-primary);
+    border: 1px solid var(--color-primary);
     border-radius: 0.25em;
     width: 12ch;
     font-size: 1.25rem;

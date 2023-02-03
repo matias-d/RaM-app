@@ -37,7 +37,7 @@ export const LoginForm = () => {
     e.preventDefault()
     if (data.email === userEmail && data.password === userPass) {
       dispatch(accessPermited())
-      navigate('/home')
+      navigate('/RaM-app/home')
     } else setError({ ...error, dataFailed: 'El email o la contraseña no es correcta, vuelve a probar' })
     setTimeout(() => {
       setError({ ...error, dataFailed: '' })

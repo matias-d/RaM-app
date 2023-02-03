@@ -16,21 +16,21 @@ function App () {
   const isAccess = useSelector((state) => state.access)
   const navigate = useNavigate()
   useEffect(() => {
-    !isAccess && navigate('/')
+    !isAccess && navigate('/RaM-app/')
   }, [])
 
   return (
     <>
       {
-        location.pathname !== '/' &&
+        location.pathname !== '/RaM-app/' &&
           <NavBar />
       }
       <div className='App'>
         <Routes>
-          <Route path='/' element={<Login />} />
-          <Route path='/home' element={<Home />} />
-          <Route path='/favorites' element={<Favorites />} />
-          <Route path='/character/:id' element={<Details />} />
+          <Route path='/RaM-app/' element={<Login />} />
+          <Route path='/RaM-app/home' element={<Home />} />
+          <Route path='/RaM-app/favorites' element={<Favorites />} />
+          <Route path='/RaM-app/character/:id' element={<Details />} />
         </Routes>
       </div>
     </>

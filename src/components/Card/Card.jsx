@@ -17,7 +17,7 @@ export const Card = ({ character }) => {
       <button className={styles.card__iconClose} onClick={() => dispatch(deleteCharacter(character.id))}>
         <RiCloseCircleLine />
       </button>
-      <Link to={`/character/${character.id}`}>
+      <Link to={`/RaM-app/character/${character.id}`}>
         <img src={character.image} className={styles.card__img} />
       </Link>
       <div className={styles.card__name_container}>

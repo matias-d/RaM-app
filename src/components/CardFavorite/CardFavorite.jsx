@@ -5,7 +5,7 @@ import styles from './cardfavorite.module.css'
 export const CardFavorite = ({ favorite }) => {
   return (
     <div className={styles.card}>
-      <Link to={`/character/${favorite.id}`}>
+      <Link to={`/RaM-app/character/${favorite.id}`}>
         <img src={favorite.image} className={styles.card__img} />
       </Link>
       <div className={styles.card__name_container}>

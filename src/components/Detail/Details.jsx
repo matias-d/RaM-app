@@ -18,7 +18,7 @@ export const Details = () => {
 
   return (
     <>
-      <Link to='/home' className={styles.detail__toBack}><RiArrowLeftLine className={styles.detail__iconBack} /> Volver al inicio</Link>
+      <Link to='/RaM-app/home' className={styles.detail__toBack}><RiArrowLeftLine className={styles.detail__iconBack} /> Volver al inicio</Link>
       <div className={styles.container}>
         <img src={character.image} alt={character.name} className={styles.details__img} />
         <div className={styles.detail__info}>

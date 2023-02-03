@@ -12,24 +12,24 @@ export const NavBar = () => {
   const navigate = useNavigate()
   function handleClick () {
     dispatch(accessPermited())
-    navigate('/')
+    navigate('/RaM-app/')
   }
 
   return (
     <header className={styles.container}>
       <nav className={styles.header__nav}>
-        <Link to='/home'>
+        <Link to='/RaM-app/home'>
           <img src={rickLogo} alt='logo rick and morty' className={styles.header__img} />
         </Link>
         <ul className={styles.header__list}>
           <li className={styles.list__items}>
-            <NavLink to='/home' className={({ isActive }) => isActive ? styles.isActive : styles.items__links}>Inicio</NavLink>
+            <NavLink to='/RaM-app/home' className={({ isActive }) => isActive ? styles.isActive : styles.items__links}>Inicio</NavLink>
           </li>
           <li className={styles.list__items}>
-            <NavLink to='/favorites' className={({ isActive }) => isActive ? styles.isActive : styles.items__links}> Favoritos</NavLink>
+            <NavLink to='/RaM-app/favorites' className={({ isActive }) => isActive ? styles.isActive : styles.items__links}> Favoritos</NavLink>
           </li>
           <li className={styles.list__items}>
-            <NavLink to='/about' className={({ isActive }) => isActive ? styles.isActive : styles.items__links}>Saber más</NavLink>
+            <NavLink to='/RaM-app/about' className={({ isActive }) => isActive ? styles.isActive : styles.items__links}>Saber más</NavLink>
           </li>
         </ul>
       </nav>

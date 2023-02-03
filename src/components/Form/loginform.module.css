@@ -5,6 +5,7 @@
     width: 26vw;
     padding: 1rem 2rem;
     box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+    position: relative;
 }
 
 .form__title {
@@ -93,9 +94,10 @@
     border-radius: 10px;
 }
 
+
 @media (max-width: 640px) {
     .form {
-        width: 70%;
+        width: 80%;
     }
 
     .form__input_email, .form__input_password, .input__email_error, .input__pass_error{

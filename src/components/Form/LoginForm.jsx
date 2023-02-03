@@ -6,6 +6,7 @@ import { userEmail, userPass } from '../../utils/access'
 import { useDispatch } from 'react-redux'
 import { accessPermited } from '../../redux/actions'
 import { useNavigate } from 'react-router-dom'
+import { ModalData } from '../ModalData/ModalData'
 export const LoginForm = () => {
   const [data, setData] = useState({
     email: '',
@@ -47,6 +48,7 @@ export const LoginForm = () => {
   return (
     <>
       <form onSubmit={handleSubmit} className={styles.form}>
+        <ModalData />
         <h2 className={styles.form__title}>INICIAR <span>SESIÓN</span></h2>
         <div className={styles.container__inputEmail}>
           <input type='text' placeholder='user@gmail.com' name='email' value={data.email} onChange={(e) => handleChange(e)} className={!error.email ? styles.form__input_email : styles.input__email_error} />

@@ -50,7 +50,17 @@
         margin: 0 auto;
     }
 
+    .card__name_container {
+        padding: 0 0 0 0.8rem;
+    }
+
     .card__name {
-        font-size: 0.9rem;
+        font-size: 0.8rem;
+        flex: 2;
+    }
+
+    .card__id{
+        flex: 1;
+        font-size: 1.2rem;
     }
 }

@@ -36,7 +36,16 @@
     transform: translateY(-50%);
 }
 
-.form__btn:hover {
+.form__btnRandom {
+    background-color: var(--color-primary);
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.form__btnRandom:hover {
     background-color: var(--color-pimary-hover);
 }
 

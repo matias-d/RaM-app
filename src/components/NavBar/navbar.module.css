@@ -99,6 +99,10 @@
 
     }
 
+    .header__nav {
+        column-gap: 0
+    }
+
     .header__img {
         display: none;
     }

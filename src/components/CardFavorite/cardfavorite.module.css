@@ -5,6 +5,7 @@
     position: relative;
     transition: box-shadow 0.3s ease-in-out;
     max-width: 22vw;
+    border-bottom: 1px solid var(--color-primary);
 }
 
 

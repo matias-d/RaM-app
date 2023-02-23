@@ -30,7 +30,7 @@ function App () {
         <Routes>
           <Route path='/RaM-app/' element={<Login />} />
           <Route path='/RaM-app/home' element={<Home />} />
-          <Route path='/RaM-app/about-me' element={<AboutMe />} />
+          <Route path='/RaM-app/about' element={<AboutMe />} />
           <Route path='/RaM-app/favorites' element={<Favorites />} />
           <Route path='/RaM-app/character/:id' element={<Details />} />
           <Route path='*' element={<Navigate to='/RaM-app/home' />} />

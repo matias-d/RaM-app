@@ -29,7 +29,7 @@ export const NavBar = () => {
             <NavLink to='/RaM-app/favorites' className={({ isActive }) => isActive ? styles.isActive : styles.items__links}> Favoritos</NavLink>
           </li>
           <li className={styles.list__items}>
-            <NavLink to='/RaM-app/about' className={({ isActive }) => isActive ? styles.isActive : styles.items__links}>Saber más</NavLink>
+            <NavLink to='/RaM-app/about-me' className={({ isActive }) => isActive ? styles.isActive : styles.items__links}>Saber más</NavLink>
           </li>
           <li className={styles.list__items}>
             <a href='https://github.com/matias-d/RaM-app' target='_blank' className={styles.items__links} rel='noreferrer'>Github</a>

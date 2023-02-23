@@ -1,0 +1,18 @@
+.about__container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+}
+
+h3 {
+    margin: 0;
+}
+
+.about__description{
+    width: 50ch;
+    text-align: center;
+    color: #ffffffd5
+}
+

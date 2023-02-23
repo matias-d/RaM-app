@@ -1,29 +1,27 @@
 import React, { useState } from 'react'
 import { RiSearch2Line } from 'react-icons/ri'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchPost } from '../../redux/actions'
+import { fetchGetCharacterById } from '../../redux/actions'
 import styles from './search.module.css'
 
 export const Search = () => {
   const [id, setId] = useState('')
   const dispatch = useDispatch()
   const characters = useSelector((state) => state.characters)
-  const favorites = useSelector((state) => state.favorites)
-  const stateFavorite = favorites.some(f => f.id === Number(id))
   function handleChange (e) {
     setId(e.target.value)
   }
 
   function handleClick () {
     const idRandom = Math.floor(Math.random() * 826)
-    dispatch(fetchPost(idRandom, stateFavorite))
+    dispatch(fetchGetCharacterById(idRandom))
   }
 
   function handleSubmit (e) {
     e.preventDefault()
     const characterFounded = characters.find(c => c.id === Number(id))
 
-    if (!characterFounded) dispatch(fetchPost(id, stateFavorite))
+    if (!characterFounded) dispatch(fetchGetCharacterById(id))
     else window.alert(`Ya se esta mostrando el personaje con la id ${id}`)
     setId('')
   }

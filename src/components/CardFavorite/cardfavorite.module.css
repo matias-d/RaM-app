@@ -24,6 +24,7 @@
 }
 
 .card__name {
+    width: 15ch;
     font-size: 1.2rem;
     font-weight: 600;
     color: var(--color-primary-light);
@@ -42,6 +43,25 @@
 
 .card:hover {
     box-shadow: 0px 10px 15px -3px var(--color-primary);
+}
+
+.card__iconFav {
+    position: absolute;
+    right: 0;
+    top: 0;
+    border-bottom-left-radius: 10px;
+    font-size: 1.6rem;
+    background-color: var(--bg-base-light);
+    padding: 0.1rem 0.4rem;
+    box-sizing: content-box;
+    transition: color 0.2s ease-in;
+    cursor: pointer;
+    border: none;
+    color: var(--color-primary);
+}
+
+.card__iconFav:hover {
+    color: var(--color-pimary-hover);
 }
 
 

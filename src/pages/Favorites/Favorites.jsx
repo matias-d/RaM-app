@@ -1,27 +1,31 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { CardFavorite } from '../../components/CardFavorite/CardFavorite'
 import { RiHeartsLine } from 'react-icons/ri'
 import { Filter } from '../../components/Filters/Filter'
-import { cleanedFilter } from '../../redux/actions'
+import { fetchGetAllFavorites } from '../../redux/actions'
 import styles from './favorites.module.css'
 import rickYmortyImage from '../../assets/Rick-And-Morty-PNG-Transparent-Image.png'
 export const Favorites = () => {
-  const [toMapList, setToMapList] = useState([])
-
   const favorites = useSelector((state) => state.favorites)
-  const filter = useSelector((state) => state.filter)
+  const characters = useSelector(state => state.characters)
+  const charactersFavorites = characters.some((character) => character.favorite === true)
   const dispatch = useDispatch()
   useEffect(() => {
-    if (filter.length) setToMapList(filter)
-    else setToMapList(favorites)
-  }, [filter])
+    dispatch(fetchGetAllFavorites())
+  }, [Filter])
 
-  useEffect(() => {
-    return () => {
-      dispatch(cleanedFilter())
-    }
-  }, [])
+  if (charactersFavorites && !favorites.length) {
+    return (
+      <>
+        <h2 className={styles.favorites__title}><RiHeartsLine className={styles.favorites__icon} />Tus <span>Favoritos</span></h2>
+        <Filter />
+        <div className={styles.container__message}>
+          <p className={styles.notcharac__favorites}>No se encuentran personajes con esas caracteristicas!</p>
+        </div>
+      </>
+    )
+  }
 
   if (!favorites.length) {
     return (
@@ -38,7 +42,7 @@ export const Favorites = () => {
       <Filter />
       <div className={styles.container}>
         {
-          toMapList.map((favorite) => (
+          favorites.map((favorite) => (
             <CardFavorite key={favorite.id} favorite={favorite} />
           ))
         }

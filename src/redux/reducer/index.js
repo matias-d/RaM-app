@@ -1,4 +1,4 @@
-import { ADD_CHARACTER, ADD_FAVORITE, DELETE_CHARACTER, DELETE_FAVORITE, FILTER_BY_GENRE, FILTER_BY_SPECIE, FILTER_BY_STATUS, IS_ACCESS_PERMITED, TOGGLE_FAVORITE, CLEANED_FILTER } from '../actions/types'
+import { ADD_CHARACTER, ADD_FAVORITE, DELETE_CHARACTER, DELETE_FAVORITE, FILTER_BY_GENRE, FILTER_BY_SPECIE, FILTER_BY_STATUS, IS_ACCESS_PERMITED, CLEANED_FILTER, GET_ALL_CHARACTERS, GET_ALL_FAVORITES } from '../actions/types'
 
 const initialState = {
   characters: [],
@@ -9,6 +9,11 @@ const initialState = {
 
 function rootReducer (state = initialState, action) {
   switch (action.type) {
+    case GET_ALL_CHARACTERS:
+      return {
+        ...state,
+        characters: action.payload
+      }
     case ADD_CHARACTER:
       return {
         ...state,
@@ -19,7 +24,24 @@ function rootReducer (state = initialState, action) {
         ...state,
         characters: state.characters.filter(c => c.id !== action.payload)
       }
-    case TOGGLE_FAVORITE:
+    case GET_ALL_FAVORITES:
+      return {
+        ...state,
+        favorites: action.payload
+      }
+    case ADD_FAVORITE:
+      return {
+        ...state,
+        characters: state.characters.map(c => {
+          if (c.id !== action.payload.id) return c
+          return {
+            ...c,
+            favorite: !c.favorite
+          }
+        }),
+        favorites: [...state.favorites, action.payload]
+      }
+    case DELETE_FAVORITE:
       return {
         ...state,
         characters: state.characters.map(c => {
@@ -28,16 +50,7 @@ function rootReducer (state = initialState, action) {
             ...c,
             favorite: !c.favorite
           }
-        })
-      }
-    case ADD_FAVORITE:
-      return {
-        ...state,
-        favorites: [...state.favorites, action.payload]
-      }
-    case DELETE_FAVORITE:
-      return {
-        ...state,
+        }),
         favorites: state.favorites.filter(f => f.id !== action.payload)
       }
     case FILTER_BY_GENRE:

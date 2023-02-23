@@ -45,6 +45,19 @@
     left: 8rem;
     width: 350px;
 }
+.container__message{
+    display : flex;
+    justify-content: center;
+    align-items: center;
+}
+.notcharac__favorites {
+    width: 40vw;
+    text-align: center;
+    background-color: var(--bg-base-light);
+    padding: 1rem;
+    border-radius: 10px;
+    letter-spacing: 0.1rem;
+}
 
 @media (max-width: 640px) {
     .container {

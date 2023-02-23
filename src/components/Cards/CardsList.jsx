@@ -1,11 +1,18 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { Card } from '../Card/Card'
 import styles from './cardslist.module.css'
 import rickImage from '../../assets/58f37709a4fa116215a9240d.png'
 import { RiSkullLine } from 'react-icons/ri'
+
+import { fetchGetAllCharacters } from '../../redux/actions'
 export const CardsList = () => {
   const characters = useSelector((state) => state.characters)
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(fetchGetAllCharacters())
+  }, [])
+
   if (!characters.length) {
     return (
       <div className={styles.card__info_container}>

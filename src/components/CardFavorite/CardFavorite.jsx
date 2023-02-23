@@ -1,10 +1,17 @@
 import React from 'react'
-import { RiHashtag } from 'react-icons/ri'
+import { RiHashtag, RiHeartFill } from 'react-icons/ri'
+import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { fetchDeleteFavorite } from '../../redux/actions'
 import styles from './cardfavorite.module.css'
 export const CardFavorite = ({ favorite }) => {
+  const dispatch = useDispatch()
+
   return (
     <div className={styles.card}>
+      <div className={styles.card__iconFav} onClick={() => dispatch(fetchDeleteFavorite(favorite.id))}>
+        <RiHeartFill />
+      </div>
       <Link to={`/RaM-app/character/${favorite.id}`}>
         <img src={favorite.image} className={styles.card__img} />
       </Link>

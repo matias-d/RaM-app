@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import getCharacterById from '../../services/getCharacterById'
+
 import styles from './details.module.css'
 import { RiEarthLine, RiHeartPulseLine, RiAliensLine, RiParentLine, RiMapPinLine, RiArrowLeftLine } from 'react-icons/ri'
+import getCharacterDetail from '../../services/getCharacterDetail'
 
 export const Details = () => {
   const [character, setCharacter] = useState({})
   const { id } = useParams()
 
   useEffect(() => {
-    getCharacterById(id)
+    getCharacterDetail(id)
       .then(c => setCharacter(c))
     return () => {
       setCharacter({})
@@ -20,11 +21,11 @@ export const Details = () => {
     <>
       <Link to='/RaM-app/home' className={styles.detail__toBack}><RiArrowLeftLine className={styles.detail__iconBack} /> Volver al inicio</Link>
       <div className={styles.container}>
-        <img src={character.image} alt={character.name} className={styles.details__img} />
+        <img src={character.image} alt={character.name} className={styles.details__img} width='300' />
         <div className={styles.detail__info}>
           <h2 className={styles.info__name}>{character.name}</h2>
-          <h3 className={styles.info__origin}><RiEarthLine className={styles.info__iconOrigin} /> Origen : <span>{character.origin?.name}</span></h3>
-          <h3 className={styles.info__location}><RiMapPinLine className={styles.info__iconLocation} /> Ubicación : <span>{character.location?.name}</span></h3>
+          <h3 className={styles.info__origin}><RiEarthLine className={styles.info__iconOrigin} /> Origen : <span>{character.origin}</span></h3>
+          <h3 className={styles.info__location}><RiMapPinLine className={styles.info__iconLocation} /> Ubicación : <span>{character.location}</span></h3>
           <div className={styles.info__characteristics}>
             <p className={styles.characteristics__status}><RiHeartPulseLine className={styles.characteristics__iconStatus} /> Estado : <span className={character.status === 'Dead' ? styles.isDead : styles.status__info}>{character.status}</span></p>
             <p className={styles.characteristics__specie}><RiAliensLine className={styles.characteristics__iconSpecie} /> Especie : <span className={styles.specie__info}>{character.species}</span></p>

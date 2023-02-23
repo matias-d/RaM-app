@@ -2,19 +2,19 @@ import React from 'react'
 import styles from './card.module.css'
 import { RiHeartLine, RiHeartFill, RiCloseCircleLine } from 'react-icons/ri'
 import { useDispatch } from 'react-redux'
-import { addFavorite, deleteCharacter, deleteFavorite } from '../../redux/actions'
+import { fetchDeleteFavorite, fetchDelete, fetchPostFavorite } from '../../redux/actions'
 import { Link } from 'react-router-dom'
 export const Card = ({ character }) => {
   const dispatch = useDispatch()
 
   function handleClick () {
-    if (!character.favorite) dispatch(addFavorite(character))
-    else dispatch(deleteFavorite(character.id))
+    if (!character.favorite) dispatch(fetchPostFavorite(character))
+    else dispatch(fetchDeleteFavorite(character.id))
   }
 
   return (
     <div className={styles.card}>
-      <button className={styles.card__iconClose} onClick={() => dispatch(deleteCharacter(character.id))}>
+      <button className={styles.card__iconClose} onClick={() => dispatch(fetchDelete(character.id))}>
         <RiCloseCircleLine />
       </button>
       <Link to={`/RaM-app/character/${character.id}`}>
